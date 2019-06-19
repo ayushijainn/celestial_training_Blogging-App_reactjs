@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import { Form, Button } from "react-bootstrap";
+import { useAlert } from 'react-alert'
 //import TransitionGroup from "react-transition-group";
 
 //import FadeTransition from "fadeTransition";
@@ -71,7 +72,8 @@ class App extends React.Component {
     this.state = {
       isLoginOpen: true,
       isRegisterOpen: false,
-      user:null
+      user:null,
+      items:[]
     };
   }
 
@@ -84,12 +86,23 @@ class App extends React.Component {
   }
 
   signIn(email,password)
-{
-  this.setState({
-    user:{
+{ 
+  debugger;
+  let val=0;
+  for (let i = 0; i < this.state.items.length; i++) {
+    if ((this.state.items[i].email == email) && (this.state.items[i].name == password)) {
+      this.setState({
+      user:{
       email,password
+         }
+      });
+    val=1;
+    } 
+  }
+    if(val==0){
+     alert('incorrect');
     }
-  })
+  
 }
 
   Register(Username,email,password)
@@ -106,10 +119,22 @@ signOut(){
     user:null
   })
 }
+
+componentDidMount() {
+   
+    fetch('https://jsonplaceholder.typicode.com/users')
+       .then(res=>res.json())
+       .then(json => {
+          this.setState({
+            items:json
+          })
+       });
+}
   
    
 
   render() {
+    var{ items}=this.state;
     let loginRegBox = null;
     if(this.state.isLoginOpen) {
        loginRegBox =  (<LoginBox onSignIn={this.signIn.bind(this)} />);
@@ -118,7 +143,18 @@ signOut(){
       }
     return (
       <div className="root-container">
-       <Helmet bodyAttributes={{style: 'background-color:#073739;'}}/>
+       <Helmet bodyAttributes={{style: 'background-color:#dcc8c8;'}}/>
+       <div className="display">
+
+        
+       <ul>
+         {items.map(item => (
+           <li key={item.id}>
+              email: {item.email} | password: {item.name}  
+             </li> 
+          ))}
+       </ul> 
+       </div>  
        {(this.state.user) ? 
             <Welcome 
              user={this.state.user} 
