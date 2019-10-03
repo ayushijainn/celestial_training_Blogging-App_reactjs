@@ -1,0 +1,28 @@
+.Welcome {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.linking{
+ padding-right: 0px; 
+ width: 50%;
+}
+
+.mainmenu{
+	width: 30px;
+	padding-left: 30px;
+	padding-top: 0px;
+	
+}
+
+.linking {
+	width: 50%;
+	float: right;
+	padding-top: 0px;
+}
+
+.signout{
+	padding-top: 30px;
+	padding-left: 50px;
+}
+

@@ -6,20 +6,21 @@ body,
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    padding-left: 150px;
-    padding-top: 30px;
+   
 
 }
 
 $blue_theme: #70a1ff;
 //Root Container
 .root-container {
+    
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .box-controller {
@@ -87,6 +88,12 @@ $blue_theme: #70a1ff;
     font-family: Ozxgen, sans-serif;
     font-size: 22px;
     border-bottom: 2px solid $blue_theme;
+}
+
+.display{
+    font-size: 10px;
+    padding:10px;
+    padding-left: 60px;
 }
 
 .box {
@@ -194,7 +201,7 @@ $blue_theme: #70a1ff;
 }
 
 .menu-btn{
-   padding: 2px 17px;
+   padding:  5px;
 
     /* background-color: #417cef; */
     border: 0;

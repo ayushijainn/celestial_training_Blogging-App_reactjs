@@ -1,0 +1,21 @@
+.AddBlogs {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+.title {
+padding:20px;
+}
+
+.content {
+padding:10px;
+}
+
+.image{
+padding:20px;
+}
+
+.date{
+padding:10px;
+}
